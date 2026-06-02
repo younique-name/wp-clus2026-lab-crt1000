@@ -1,0 +1,75 @@
+lab:
+  title: 3-Router BGP Lab
+  description: Local GitOps deployment lab
+  version: 0.2.2
+
+nodes:
+  - id: n1
+    label: R1
+    node_definition: iosv
+    x: 0
+    y: 0
+    configuration: ""
+    image_definition: null
+    interfaces:
+      - id: i0
+        label: GigabitEthernet0/0
+        type: physical
+        slot: 0
+      - id: i1
+        label: GigabitEthernet0/1
+        type: physical
+        slot: 1
+
+  - id: n2
+    label: R2
+    node_definition: iosv
+    x: 200
+    y: 0
+    configuration: ""
+    image_definition: null
+    interfaces:
+      - id: i0
+        label: GigabitEthernet0/0
+        type: physical
+        slot: 0
+      - id: i1
+        label: GigabitEthernet0/1
+        type: physical
+        slot: 1
+
+  - id: n3
+    label: R3
+    node_definition: iosv
+    x: 100
+    y: 150
+    configuration: ""
+    image_definition: null
+    interfaces:
+      - id: i0
+        label: GigabitEthernet0/0
+        type: physical
+        slot: 0
+      - id: i1
+        label: GigabitEthernet0/1
+        type: physical
+        slot: 1
+
+links:
+  - id: l1
+    n1: n1
+    i1: i0
+    n2: n2
+    i2: i0
+
+  - id: l2
+    n1: n2
+    i1: i1
+    n2: n3
+    i2: i0
+
+  - id: l3
+    n1: n1
+    i1: i1
+    n2: n3
+    i2: i1
